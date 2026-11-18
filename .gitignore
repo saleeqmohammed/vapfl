@@ -1,0 +1,34 @@
+# Build & Install artifacts
+build/
+install/
+log/
+.colcon/
+
+# CMake / IDE
+compile_commands.json
+.cache/
+.vscode/
+.idea/
+*.swp
+*~
+
+# C++ binaries & libraries
+*.o
+*.a
+*.so
+*.dylib
+
+# Testing & Coverage
+Testing/
+*.gcda
+*.gcno
+*.gcov
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+
+# Isaac Sim / Omniverse local data
+*.usd.bak
+logs/
