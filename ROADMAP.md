@@ -1,6 +1,6 @@
-# VAPFL Production Modernization Roadmap (ROS 2 Jazzy)
+# VAPFL Production Roadmap (ROS 2 Jazzy)
 
-This roadmap details the engineering plan to rewrite the university prototype of the **Variance-based Adaptive Particle Filter Localization (VAPFL)** into an industry-grade, safety-critical robotics package.
+This roadmap details the engineering plan for **Variance-based Adaptive Particle Filter Localization (VAPFL)** as an independent, industry-grade, safety-critical robotics package written from scratch in Modern C++ (C++20) for ROS 2 Jazzy.
 
 **Target Stack:**
 - **OS & Middleware:** Ubuntu 24.04 LTS & **ROS 2 Jazzy Jalisco**
@@ -14,10 +14,10 @@ This roadmap details the engineering plan to rewrite the university prototype of
 
 ## 1. System Architecture: Decoupled Design
 
-The university implementation tightly couples ROS message types (`geometry_msgs/Pose`) and Python lists inside the filter update loop (`src/pf_localisation/pf.py`). In production, **core algorithms are strictly decoupled from ROS middleware**.
+VAPFL is architected from scratch with strict separation of concerns: **core localization algorithms are completely decoupled from the ROS middleware**.
 
 ```
-variance_based_pf_localisation/
+vapfl/
 ├── .github/
 │   └── workflows/
 │       ├── ci.yml                 # Build, test, & pedantic warnings check
@@ -224,7 +224,7 @@ jobs:
 
 ## 7. NVIDIA Isaac Sim Integration & Benchmarking
 
-The legacy package was tested in Stage simulation. The production version integrates with **NVIDIA Isaac Sim**:
+VAPFL natively integrates with **NVIDIA Isaac Sim** for photorealistic and high-fidelity physics validation:
 
 1. **Omniverse ROS 2 Bridge:** Communicates with ROS 2 Jazzy topics using the `omni.isaac.ros2_bridge` extension.
 2. **Sensors & Dynamics:**
