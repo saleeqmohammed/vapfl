@@ -1,0 +1,27 @@
+{
+  "sensor_type": "rtx_lidar_2d",
+  "name": "laser_scanner",
+  "parent_prim": "/World/Robot/base_link",
+  "pose": {
+    "position": [0.0, 0.0, 0.20],
+    "rotation": [0.0, 0.0, 0.0, 1.0]
+  },
+  "parameters": {
+    "horizontal_fov_deg": 360.0,
+    "horizontal_resolution_deg": 0.5,
+    "num_beams": 720,
+    "min_range_m": 0.05,
+    "max_range_m": 25.0,
+    "update_rate_hz": 20.0,
+    "ray_type": "solid_state",
+    "range_accuracy_m": 0.01,
+    "intensity_enabled": false
+  },
+  "ros2_bridge": {
+    "enabled": true,
+    "node_namespace": "",
+    "topic_name": "/scan",
+    "frame_id": "laser_frame",
+    "qos_profile": "sensor_data"
+  }
+}

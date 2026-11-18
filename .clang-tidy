@@ -1,0 +1,24 @@
+---
+Checks: >
+  clang-diagnostic-*,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  performance-*,
+  readability-*,
+  -readability-magic-numbers,
+  -readability-identifier-length,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  -modernize-avoid-c-arrays
+
+WarningsAsErrors: ''
+
+HeaderFilterRegex: 'vapfl_core/.*|vapfl_ros/.*'
+
+CheckOptions:
+  readability-identifier-naming.ClassCase: CamelCase
+  readability-identifier-naming.StructCase: CamelCase
+  readability-identifier-naming.FunctionCase: lower_case
+  readability-identifier-naming.VariableCase: lower_case
+  readability-identifier-naming.PrivateMemberSuffix: '_'
+...

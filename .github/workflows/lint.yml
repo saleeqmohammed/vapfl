@@ -1,0 +1,22 @@
+name: Code Formatting & Static Analysis
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Clang Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format-18 clang-tidy-18
+
+      - name: Verify Code Formatting (clang-format)
+        run: |
+          find vapfl_core vapfl_ros -name '*.cpp' -o -name '*.hpp' | xargs clang-format-18 --dry-run --Werror

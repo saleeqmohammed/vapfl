@@ -32,3 +32,4 @@ __pycache__/
 # Isaac Sim / Omniverse local data
 *.usd.bak
 logs/
+*.csv
